@@ -1,0 +1,240 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Mon Oct 24 16:09:07 2016
+# Process ID: 2851
+# Current directory: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP
+# Command line: vivado
+# Log file: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/vivado.log
+# Journal file: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project first_zynq_design /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design -part xc7z020clg484-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2015.4/data/ip'.
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 5759.410 ; gain = 21.832 ; free physical = 5482 ; free virtual = 7869
+set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+set_property target_language VHDL [current_project]
+create_bd_design "first_zynq_system"
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/first_zynq_system.bd> 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" apply_board_preset "1" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_0/S_AXI]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+</axi_gpio_0/S_AXI/Reg> is being mapped into </processing_system7_0/Data> at <0x41200000 [ 64K ]>
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "leds_8bits ( LED ) " }  [get_bd_intf_pins axi_gpio_0/GPIO]
+INFO: [board_rule:/axi_gpio_0-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /axi_gpio_0]
+INFO: [board_rule:/axi_gpio_0-100] set_property CONFIG.GPIO_BOARD_INTERFACE leds_8bits [get_bd_cells /axi_gpio_0]
+INFO: [board_rule:/axi_gpio_0-100] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 leds_8bits
+INFO: [board_rule:/axi_gpio_0-100] connect_bd_intf_net /leds_8bits /axi_gpio_0/GPIO
+save_bd_design
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/first_zynq_system.bd> 
+validate_bd_design
+validate_bd_design -force
+validate_bd_design -force
+make_wrapper -files [get_files /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/first_zynq_system.bd] -top
+INFO: [BD 41-1662] The design 'first_zynq_system.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system.vhd
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system_wrapper.vhd
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/first_zynq_system.bd> 
+add_files -norecurse /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system_wrapper.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs impl_1 -to_step write_bitstream
+INFO: [BD 41-1662] The design 'first_zynq_system.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system.vhd
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system_wrapper.vhd
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'first_zynq_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'first_zynq_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'first_zynq_system_processing_system7_0_0'...
+WARNING: [xilinx.com:ip:processing_system7:5.5-1] first_zynq_system_processing_system7_0_0: The Zynq BFM requires an AXI BFM license to run. Please ensure that you have purchased and setup the AXI BFM license prior to running simulation with this block. Please contact your Xilinx sales office for more information on purchasing this license
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'first_zynq_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'first_zynq_system_processing_system7_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'first_zynq_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'first_zynq_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'first_zynq_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'first_zynq_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'first_zynq_system_axi_gpio_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'first_zynq_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'first_zynq_system_rst_processing_system7_0_100M_0'...
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'first_zynq_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'first_zynq_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'first_zynq_system_rst_processing_system7_0_100M_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_processing_system7_0_100M .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'first_zynq_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'first_zynq_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'first_zynq_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'first_zynq_system_auto_pc_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hw_handoff/first_zynq_system.hwh
+Generated Block Design Tcl file /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hw_handoff/first_zynq_system_bd.tcl
+Generated Hardware Definition File /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system.hwdef
+[Mon Oct 24 16:52:15 2016] Launched synth_1...
+Run output will be captured here: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.runs/synth_1/runme.log
+[Mon Oct 24 16:52:15 2016] Launched impl_1...
+Run output will be captured here: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 6145.625 ; gain = 154.316 ; free physical = 5067 ; free virtual = 7552
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2015.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/.Xil/Vivado-2851-pc4068/dcp/first_zynq_system_wrapper_early.xdc]
+Finished Parsing XDC File [/nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/.Xil/Vivado-2851-pc4068/dcp/first_zynq_system_wrapper_early.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 6224.656 ; gain = 0.000 ; free physical = 4889 ; free virtual = 7493
+Restored from archive | CPU: 0.190000 secs | Memory: 0.992264 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 6224.656 ; gain = 0.000 ; free physical = 4889 ; free virtual = 7493
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 6362.754 ; gain = 188.098 ; free physical = 4748 ; free virtual = 7352
+file mkdir /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk
+file copy -force /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.runs/impl_1/first_zynq_system_wrapper.sysdef /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk/first_zynq_system_wrapper.hdf
+
+launch_sdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk/first_zynq_system_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk/first_zynq_system_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+close_project
+create_project zynq_interrupts /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts -part xc7z020clg484-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2015.4/data/ip'.
+set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+set_property target_language VHDL [current_project]
+create_bd_design "zynq_interrupt_system"
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd> 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" apply_board_preset "1" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_0/S_AXI]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+</axi_gpio_0/S_AXI/Reg> is being mapped into </processing_system7_0/Data> at <0x41200000 [ 64K ]>
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "btns_5bits ( Push buttons ) " }  [get_bd_intf_pins axi_gpio_0/GPIO]
+INFO: [board_rule:/axi_gpio_0-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /axi_gpio_0]
+INFO: [board_rule:/axi_gpio_0-100] set_property CONFIG.GPIO_BOARD_INTERFACE btns_5bits [get_bd_cells /axi_gpio_0]
+INFO: [board_rule:/axi_gpio_0-100] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 btns_5bits
+INFO: [board_rule:/axi_gpio_0-100] connect_bd_intf_net /btns_5bits /axi_gpio_0/GPIO
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_1/S_AXI]
+</axi_gpio_1/S_AXI/Reg> is being mapped into </processing_system7_0/Data> at <0x41210000 [ 64K ]>
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "leds_8bits ( LED ) " }  [get_bd_intf_pins axi_gpio_1/GPIO]
+INFO: [board_rule:/axi_gpio_1-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /axi_gpio_1]
+INFO: [board_rule:/axi_gpio_1-100] set_property CONFIG.GPIO_BOARD_INTERFACE leds_8bits [get_bd_cells /axi_gpio_1]
+INFO: [board_rule:/axi_gpio_1-100] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 leds_8bits
+INFO: [board_rule:/axi_gpio_1-100] connect_bd_intf_net /leds_8bits /axi_gpio_1/GPIO
+set_property location {1.5 253 -50} [get_bd_cells axi_gpio_1]
+set_property location {3 615 60} [get_bd_cells axi_gpio_1]
+set_property location {2 720 -373} [get_bd_cells axi_gpio_0]
+set_property location {0.5 352 -453} [get_bd_cells axi_gpio_0]
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1}] [get_bd_cells axi_gpio_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.PCW_USE_FABRIC_INTERRUPT {1} CONFIG.PCW_IRQ_F2P_INTR {1}] [get_bd_cells processing_system7_0]
+endgroup
+connect_bd_net [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins axi_gpio_0/ip2intc_irpt]
+save_bd_design
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd> 
+validate_bd_design
+make_wrapper -files [get_files /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd] -top
+INFO: [BD 41-1662] The design 'zynq_interrupt_system.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system.vhd
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.vhd
+Wrote  : </nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd> 
+add_files -norecurse /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs impl_1 -to_step write_bitstream
+INFO: [BD 41-1662] The design 'zynq_interrupt_system.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system.vhd
+VHDL Output written to : /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.vhd
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_processing_system7_0_0'...
+WARNING: [xilinx.com:ip:processing_system7:5.5-1] zynq_interrupt_system_processing_system7_0_0: The Zynq BFM requires an AXI BFM license to run. Please ensure that you have purchased and setup the AXI BFM license prior to running simulation with this block. Please contact your Xilinx sales office for more information on purchasing this license
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'zynq_interrupt_system_processing_system7_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_processing_system7_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'zynq_interrupt_system_axi_gpio_0_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_axi_gpio_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_axi_gpio_1_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_axi_gpio_1_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_axi_gpio_1_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'zynq_interrupt_system_axi_gpio_1_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_axi_gpio_1_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'zynq_interrupt_system_rst_processing_system7_0_100M_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_rst_processing_system7_0_100M_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_processing_system7_0_100M .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_xbar_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_xbar_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_xbar_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_xbar_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/xbar .
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'zynq_interrupt_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'zynq_interrupt_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'zynq_interrupt_system_auto_pc_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'zynq_interrupt_system_auto_pc_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hw_handoff/zynq_interrupt_system.hwh
+Generated Block Design Tcl file /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hw_handoff/zynq_interrupt_system_bd.tcl
+Generated Hardware Definition File /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system.hwdef
+[Mon Oct 24 17:44:54 2016] Launched synth_1...
+Run output will be captured here: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.runs/synth_1/runme.log
+[Mon Oct 24 17:44:54 2016] Launched impl_1...
+Run output will be captured here: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 6677.906 ; gain = 0.000 ; free physical = 3424 ; free virtual = 6481
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2015.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/.Xil/Vivado-2851-pc4068/dcp/zynq_interrupt_system_wrapper_early.xdc]
+Finished Parsing XDC File [/nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/.Xil/Vivado-2851-pc4068/dcp/zynq_interrupt_system_wrapper_early.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.18 . Memory (MB): peak = 6677.906 ; gain = 0.000 ; free physical = 3369 ; free virtual = 6456
+Restored from archive | CPU: 0.190000 secs | Memory: 1.483849 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.18 . Memory (MB): peak = 6677.906 ; gain = 0.000 ; free physical = 3369 ; free virtual = 6456
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+file mkdir /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk
+file copy -force /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.runs/impl_1/zynq_interrupt_system_wrapper.sysdef /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk/zynq_interrupt_system_wrapper.hdf
+
+launch_sdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk/zynq_interrupt_system_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk/zynq_interrupt_system_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 24 18:01:41 2016...

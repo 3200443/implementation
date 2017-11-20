@@ -1,0 +1,85 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Mon Oct 24 16:09:07 2016
+# Process ID: 2851
+# Current directory: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP
+# Command line: vivado
+# Log file: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/vivado.log
+# Journal file: /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project first_zynq_design /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design -part xc7z020clg484-1
+set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+set_property target_language VHDL [current_project]
+create_bd_design "first_zynq_system"
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" apply_board_preset "1" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_0/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "leds_8bits ( LED ) " }  [get_bd_intf_pins axi_gpio_0/GPIO]
+save_bd_design
+validate_bd_design
+validate_bd_design -force
+validate_bd_design -force
+make_wrapper -files [get_files /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/first_zynq_system.bd] -top
+add_files -norecurse /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.srcs/sources_1/bd/first_zynq_system/hdl/first_zynq_system_wrapper.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+open_run impl_1
+file mkdir /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk
+file copy -force /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.runs/impl_1/first_zynq_system_wrapper.sysdef /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk/first_zynq_system_wrapper.hdf
+
+launch_sdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/first_zynq_design/first_zynq_design.sdk/first_zynq_system_wrapper.hdf
+close_project
+create_project zynq_interrupts /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts -part xc7z020clg484-1
+set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+set_property target_language VHDL [current_project]
+create_bd_design "zynq_interrupt_system"
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" apply_board_preset "1" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_0/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "btns_5bits ( Push buttons ) " }  [get_bd_intf_pins axi_gpio_0/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins axi_gpio_1/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config {Board_Interface "leds_8bits ( LED ) " }  [get_bd_intf_pins axi_gpio_1/GPIO]
+set_property location {1.5 253 -50} [get_bd_cells axi_gpio_1]
+set_property location {3 615 60} [get_bd_cells axi_gpio_1]
+set_property location {2 720 -373} [get_bd_cells axi_gpio_0]
+set_property location {0.5 352 -453} [get_bd_cells axi_gpio_0]
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1}] [get_bd_cells axi_gpio_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.PCW_USE_FABRIC_INTERRUPT {1} CONFIG.PCW_IRQ_F2P_INTR {1}] [get_bd_cells processing_system7_0]
+endgroup
+connect_bd_net [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins axi_gpio_0/ip2intc_irpt]
+save_bd_design
+validate_bd_design
+make_wrapper -files [get_files /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd] -top
+add_files -norecurse /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+open_run impl_1
+file mkdir /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk
+file copy -force /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.runs/impl_1/zynq_interrupt_system_wrapper.sysdef /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk/zynq_interrupt_system_wrapper.hdf
+
+launch_sdk -workspace /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk -hwspec /nfs/home/sasl/eleves/ei-se/3300195/eise4_CoDesign/TP/zynq_interrupts/zynq_interrupts.sdk/zynq_interrupt_system_wrapper.hdf
