@@ -6,6 +6,7 @@
 #include "nrdef.h"
 #include "nrutil.h"
 #include "matric_roc.h"
+#include <string.h>
 
 
 
@@ -45,6 +46,45 @@ void differenceImageScal_SIMD()
     
 }
 
+void Implementation(char nom[]){
+    long nrl, nrh, ncl, nch;
+    char nomSauvegardeH[100];
+    char nomImage[100];
+    strcpy(nomImage, nom);
+    strcpy(nomSauvegardeH, nomImage);
+    strcat(nomSauvegardeH,".h");
+    char nomLecture[100] = "car3/";
+    strcat(nomLecture, nomImage);
+    strcat(nomLecture,".pgm");
+    char nomType[100] = "unsigned char ";
+    strcat(nomType, nomImage);
+    uint8 **ItNonSIMD = LoadPGM_ui8matrix(nomLecture, &nrl, &nrh, &ncl, &nch);
+    FILE* fichier = fopen(nomSauvegardeH, "w");
+    fprintf(fichier, "\n%s", nomType);
+    fprintf(fichier, "[][] = {");
+    printf("nrh =  %d, nch = %d\n", nrh, nch);
+
+    for(int i = nrl; i <= nrh; i++)
+    {
+        fprintf(fichier, "{");
+        for(int j = ncl; j <= nch; j++)
+        {
+            if(j != nch)
+                fprintf(fichier, "%d, ", ItNonSIMD[i][j]);
+            else
+                fprintf(fichier, "%d ", ItNonSIMD[i][j]);
+
+
+        }
+        if(i == nrh)
+            fprintf(fichier, "} ");
+        else
+            fprintf(fichier, "},\n");
+    }
+    fprintf(fichier, "};");
+
+}
+
 #define OPTI 2 //1 pour optimisation 2 sans optimisation 3 pour tout 0 pour rien
 
 
@@ -67,6 +107,8 @@ int main(int argc, char* argv[])
     //creation_matrices_ROC("verite/car_3165.pgm", "car3Frame3x3FO/car_3165.pgm");
     //differenceImageScal_SIMD();
     //test_unitaire_SD_SSE2();
+    Implementation(argv[1]);
+
 
     return 0;
 }
