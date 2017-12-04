@@ -4,8 +4,8 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "nrdef.h"
-#include "vnrutil.h"
+#include "defneon.h"
+
 
 #define N 2
 #define VMIN 20
@@ -13,34 +13,29 @@
 #define VINI 35
 
 
-void routine_FrameDifference_SSE2(vuint8 **It, vuint8 **Itm1, vuint8 **Et, long vi0,long vi1,long vj0,long vj1, vuint8 seuil)
+
+void routine_FrameDifference_SSE2(uint8 **It, uint8 **Itm1, uint8 **Et, long vi0,long vi1,long vj0,long vj1, uint8 seuil)
 {
     vuint8 tmpIt;
     vuint8 tmpItm1;
     vuint8 tmpOt;
-    vuint8 pixelBlanc = init_vuint8(255);
-    vuint8 tmpEt;
-    vuint8 maxSChar = init_vuint8(128);
+    vuint8 res;
+
     for(int i = vi0; i <= vi1; i++ )
     {
-        for(int j = vj0; j <= vj1; j++)
+        for(int j = vj0; j <= vj1; j+=16)
         {
             //Calcul de Ot, image de difference
-            tmpIt = _mm_load_si128(&It[i][j]);
-            tmpItm1 = _mm_load_si128(&Itm1[i][j]);
-            vuint8 max = _mm_max_epu8(tmpIt,tmpItm1);
-            vuint8 min = _mm_min_epu8(tmpIt, tmpItm1);
-            tmpOt = _mm_sub_epi8(max, min);
+            tmpIt =  vld1q_u8(&It[i][j]);
+            tmpItm1 =  vld1q_u8(&Itm1[i][j]);
 
-            //Si Ot < 0, on a 255, sinon 0 donc on inverse pour avoir 255 sur Et quand Ot>=0 et 0 pour Ot < 0
-            vuint8 res = _mm_cmplt_epi8(_mm_sub_epi8(tmpOt, maxSChar), _mm_sub_epi8(seuil, maxSChar)); //Met 1 si inferieur au seuil et 0 si superieur
+            tmpOt = vabdq_u8(tmpIt,tmpItm1);
 
-            res = _mm_andnot_si128(res, pixelBlanc);
+            res = vcgeq_u8(tmpOt,seuil); //Met 1 si inferieur au seuil et 0 si superieur
+
             _mm_store_si128(&Et[i][j], res);
-
         }
     }
-
 }
 
 
