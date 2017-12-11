@@ -41,9 +41,7 @@ void differenceImageScal_SIMD()
                 }
             }
         }
-
     }
-    
 }
 
 void Implementation(char nom[]){
