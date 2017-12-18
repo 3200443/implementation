@@ -11,3 +11,6 @@ void dilatation3x3_SIMD(uint8 **It,uint8 **It1,long vi0,long vi1,long vj0,long v
 void test_routine_FrameDifference_SSE2(int seuil);
 void dup_vui8matrix(vuint8 **X, int i0, int i1, int j0, int j1, vuint8 **Y);
 void test_routine_sigmaDelta_SSE2();
+void dilatation3x3_SIMD_FB(vuint8 **It,vuint8 **It1,long vi0,long vi1,long vj0,long vj1);
+void erosion3x3_SIMD_FB(vuint8 **It,vuint8 **It1,long vi0,long vi1,long vj0,long vj1); // vj1 doit etre le vj1b bianaire §!!!!§
+
