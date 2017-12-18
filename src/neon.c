@@ -29,7 +29,7 @@
 
 
 
-int vj0b = (j0%8 == 0 ? (j0>>3):((j0>>8)+1));
+int vj0b = 0;
 
 typedef struct charbin
 {
@@ -46,7 +46,7 @@ typedef struct charbin
 void char2bin(uint8**m1, uint8**m2)// m2 is allocated
 {
     Charbin temp;
-    int i,j;
+    int i,j,c;
     for(i=i0; i <= i1; i++)
     {
         c = 0;
@@ -968,16 +968,12 @@ void erosion3x3_SIMD_FB(vuint8 **It,vuint8 **It1,long vi0,long vi1,long vj0,long
         vst1q_u8(&It1[i][j-1], result3);
     }
 
-    right = result1 << 1;
+    right  = result1 << 1;
 
     result3 = vandq_u8(left,vandq_u8(right,result1)); // Valeur finale de IT1[i][j-1]
 
     vst1q_u8(&It1[i][j-1],result3);
 }
-
-
-
-
 
 int main(int argc, char* argv[])
 {
@@ -986,6 +982,11 @@ int main(int argc, char* argv[])
     // 2) Declarer le tableau de matrice image de depart et resultat
     // 3) Assigner la valeur des images aux tableaux
     // 4) Appeler les fonctions :)
+    // 
+    // 
+    vj1b = (j0%8 == 0 ? (j0>>3):((j0>>8)+1));
+    while (vj1b%16)
+        vj1b++; //dans le cas present on devrait avoir 48 a la fin de l'exectution
 
 	uint8 *car_bundle[]={car_3000, car_3001, car_3002};
 	uint8 Et[i1+1][j1+1];
