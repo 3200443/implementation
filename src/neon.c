@@ -982,8 +982,7 @@ int main(int argc, char* argv[])
     // 2) Declarer le tableau de matrice image de depart et resultat
     // 3) Assigner la valeur des images aux tableaux
     // 4) Appeler les fonctions :)
-    // 
-    // 
+
     vj1b = (j0%8 == 0 ? (j0>>3):((j0>>8)+1));
     while (vj1b%16)
         vj1b++; //dans le cas present on devrait avoir 48 a la fin de l'exectution
