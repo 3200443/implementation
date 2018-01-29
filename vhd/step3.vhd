@@ -49,7 +49,7 @@ architecture archi_step3 of step3 is
 				intVt := intVtm1 + 1;
 			elsif(intVtm1 > NfoisOt) then -- Si Vtm1 > N*Ot : Vt = Vtm1+1
 				intVt := intVtm1 - 1;
-			else 						-- Sinon Vt=Vtm1 		
+			else 						-- Sinon Vt=Vtm1
 				intVt := intVtm1;
 			end if;
 

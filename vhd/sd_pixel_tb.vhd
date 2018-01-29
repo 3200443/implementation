@@ -31,14 +31,19 @@ begin
 		vtmoinsun	<= 	X"17"; --23
 		wait for 20 ns;
 		--------
-		itin 		<=	X"7C"; --124
-		mtmoinsun	<= 	X"94"; --148
-		vtmoinsun	<= 	X"17"; --23
-		wait for 20 ns;
+		--itin 		<=	X"7C"; --124
+		--mtmoinsun	<= 	X"94"; --148
+		--vtmoinsun	<= 	X"17"; --23
+		--wait for 20 ns;
 		--------
       	itin 		<=	X"FF";
 		mtmoinsun	<= 	X"FF";
 		vtmoinsun	<= 	X"FF";
+		wait for 20 ns;
+		--------
+		itin 		<=	X"7C"; --124
+		mtmoinsun	<= 	X"94"; --148
+		vtmoinsun	<= 	X"17"; --23
 		wait for 20 ns;
 		--------
 		itin 		<=	X"7C";
