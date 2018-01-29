@@ -7,12 +7,12 @@ end entity ;
 
 Architecture test of step2_tb is
 
-	signal mt,it 		:  std_logic_vector(7 downto 0);
+	signal mt,it,vtin 		:  std_logic_vector(7 downto 0);
   	signal CLK			:  std_logic;
-  	signal ot			:  std_logic_vector(7 downto 0);
+  	signal ot,vtout,mtout			:  std_logic_vector(7 downto 0);
 
 begin
-	I0: entity work.step2(behav) port map(it => it, mt => mt, CLK => CLK, ot => ot);
+	I0: entity work.step2(behav) port map(it => it, mt => mt, CLK => CLK, ot => ot, vtmoinsunout => vtout, vtmoinsun => vtin, mtout =>mtout);
 	process
 	begin
 		clk <= '0';
@@ -26,22 +26,27 @@ begin
 		--------
       	it 	<=	X"FF";
 		mt	<= 	X"FF";
+		vtin	<= 	X"FF";
 		--------
 		wait for 20 ns;
 		it 	<=	X"FF";
 		mt	<= 	X"00";
+		vtin	<= 	X"FF";
 		--------
 		wait for 20 ns;
 		it 	<=	X"00";
 		mt	<= 	X"00";
+		vtin	<= 	X"FF";
 		--------
 		wait for 20 ns;
 		it 	<=	X"00";
 		mt	<= 	X"FF";
+		vtin	<= 	X"FF";
 		--------
 		wait for 20 ns;
 		it 	<=	X"00";
 		mt	<= 	X"FF";
+		vtin	<= 	X"FF";
 		--------
 		wait for 20 ns;
 	end process;

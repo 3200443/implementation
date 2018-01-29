@@ -14,20 +14,21 @@ architecture archi_tbStep4 of tb_Step4 is
 
 	signal intVt : integer := 0;
 	signal intOt : integer := 0;
-
+	signal mt, mtout, vtout: std_logic_vector(7 downto 0);
 	
 
 	component Step4 is 
 	port(
-		Ot, Vt: in std_logic_vector(7 downto 0);
-		Et: out std_logic;
+		Ot, Vt,mt: in std_logic_vector(7 downto 0);
+		Et: out std_logic :='0';
+		mtout,vtout : out std_logic_vector(7 downto 0);
 		clk: in std_logic
 	);
 	end component Step4;
 
 	begin
 	tb: Step4
-	port map(Ot => Ot_tb, Vt => Vt_tb, Et => Et_tb, clk => clk_tb);
+	port map(Ot => Ot_tb, Vt => Vt_tb, Et => Et_tb, clk => clk_tb, mt => mt, mtout => mtout, vtout => vtout);
 	clk_tb <= not clk_tb after 10 ns;
 	Vt_tb <= std_logic_vector(to_unsigned(intVt,8));
 	Ot_tb <= std_logic_vector(to_unsigned(intOt,8));

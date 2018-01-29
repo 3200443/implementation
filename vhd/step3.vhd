@@ -8,40 +8,40 @@ use ieee.std_logic_1164.all;
 
 	
 entity step3 is port(
-	Vtm1, Ot: in std_logic_vector(7 downto 0);
-	Vt: out std_logic_vector(7 downto 0);
+	Vtm1, Ot,mt: in std_logic_vector(7 downto 0);
+	Vt,mtout: out std_logic_vector(7 downto 0);
 	clk: in std_logic
 	);
 end entity step3;
 
 architecture archi_step3 of step3 is
-	signal intVtm1 : unsigned(7 downto 0) := to_unsigned(0,8);
+	signal temp1 : std_logic_vector(7 downto 0);
 	signal res : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal intOt : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal N : unsigned(7 downto 0) := to_unsigned(2,8);
-	signal NfoisOt : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal Vmax : unsigned(7 downto 0) := to_unsigned(255,8);
-	signal Vmin : unsigned(7 downto 0) := to_unsigned(2,8);
-	signal mini : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal thomas : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal thomas2 : unsigned(7 downto 0) := to_unsigned(0,8);
-
+	signal link: std_logic_vector(7 downto 0);
 
 	begin
-	intVtm1 <= (unsigned(Vtm1));
-	intOt <= (unsigned(Ot));
-	Vt <= std_logic_vector(res);
-
-  
+	I0: entity work.step3bis(archi_step3bis)
+	port map(Vtin => link,mt => mt,vtout => open, mtout => open, clk => clk); --open pour ne connecter les sorties a rien
+	link <= std_logic_vector(res);
+	mtout <= temp1;
+  	Vt <= link;
 	calcul: process(clk)
 		variable intVt : unsigned(7 downto 0) := to_unsigned(0,8);
-
+		variable intVtm1 : unsigned(7 downto 0) := to_unsigned(0,8);
+		variable intOt : unsigned(7 downto 0) := to_unsigned(0,8);
+		variable N : unsigned(7 downto 0) := to_unsigned(2,8);
+		variable NfoisOt : unsigned(7 downto 0) := to_unsigned(0,8);
+		--variable thomas : unsigned(7 downto 0) := to_unsigned(0,8);
+		--variable thomas2 : unsigned(7 downto 0) := to_unsigned(0,8);
 	begin
-		--if(rising_edge(clk)) then
+		if(rising_edge(clk)) then
+			temp1 <= mt;
+			intVtm1 := (unsigned(Vtm1));
+			intOt := (unsigned(Ot));
 			if(Ot>X"7F") then -- Si c'est superieur a 127, on met directement N*Ot au max
-				NfoisOt <= X"FF";
+				NfoisOt := X"FF";
 			else --Sinon on fait la multiplication
-				NfoisOt <= intOt + intOt;
+				NfoisOt := intOt + intOt;
 			end if;
 				
 
@@ -54,22 +54,8 @@ architecture archi_step3 of step3 is
 			end if;
 
 			
-			--intVt <= max(min(intVt,Vmax),Vmin);
-			if(intVt<Vmax) then --min(intVt,Vmax)
-				mini <= intVt;
-			else
-				mini <= Vmax;
-			end if;
-
-			if(mini>Vmin) then --max(mini, Vmin)
-				intVt := mini;
-			else
-				intVt :=  Vmin;
-			end if;
-
-			
-		--end if;
-		res <= intVt;
+			res <= intVt;
+		end if;
 	end process calcul;
 
 
