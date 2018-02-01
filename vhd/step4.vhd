@@ -16,23 +16,23 @@ entity step4 is port(
 end entity step4;
 
 architecture archi_step4 of step4 is
-	signal intVt : unsigned(7 downto 0) := to_unsigned(0,8);
-	signal intOt : unsigned(7 downto 0) := to_unsigned(0,8);
 	signal procEt: std_logic;
 	signal temp1, temp2 : std_logic_vector(7 downto 0);
 	begin
-	intVt <= (unsigned(Vt));
-	intOt <= (unsigned(Ot));
 	Et <= ProcEt;
 	mtout <= temp1;
 	vtout <= temp2;
   
 	calcul: process(clk)
+	variable intOt : unsigned(7 downto 0) := to_unsigned(0,8);
+	variable intVt : unsigned(7 downto 0) := to_unsigned(0,8);
 	begin
 	if(rising_edge(clk)) then
+		intVt := (unsigned(Vt));
+		intOt := (unsigned(Ot));
 		temp1 <= mt;
 		temp2 <= Vt;
-		if(Ot<Vt) then -- Si Ot < Vt => Et = 0
+		if(intOt<intVt) then -- Si Ot < Vt => Et = 0
 			ProcEt <= '0';
 		else --Sinon Et = 1
 			ProcEt <= '1';

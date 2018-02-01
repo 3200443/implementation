@@ -7,15 +7,15 @@ use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 
 entity step3b is port(
-	Vtemp,mt: in std_logic_vector(7 downto 0);
-	Vt,mtout: out std_logic_vector(7 downto 0);
+	Vtemp,mt, otin: in std_logic_vector(7 downto 0);
+	Vt,mtout, otout: out std_logic_vector(7 downto 0);
 	clk: in std_logic
 	);
 end entity step3b;
 
 architecture behav of step3b is
 	signal res 	: std_logic_vector(7 downto 0);
-	--signal intOt 	: unsigned(7 downto 0) := to_unsigned(0,8);
+	signal Ot 	: std_logic_vector(7 downto 0);
 	--signal N 		: unsigned(7 downto 0) := to_unsigned(2,8);
 	--signal thomas : unsigned(7 downto 0) := to_unsigned(0,8);
 	--signal thomas2: unsigned(7 downto 0) := to_unsigned(0,8);
@@ -26,7 +26,7 @@ architecture behav of step3b is
 
 	Vt <= res;
 	mtout <= temp1;
-
+	otout <= Ot;
 	calcul: process(clk)
 		--variable NfoisOt 	: unsigned(7 downto 0) := to_unsigned(0,8);
 		--variable intVtm1 	: unsigned(7 downto 0) := to_unsigned(0,8);
@@ -34,9 +34,11 @@ architecture behav of step3b is
 		variable Vmin 	: unsigned(7 downto 0) := to_unsigned(2,8);
 		variable mini 	: unsigned(7 downto 0) := to_unsigned(0,8);
 		variable intVt 	: unsigned(7 downto 0) := to_unsigned(0,8);
+		variable otemp  : unsigned(7 downto 0) := to_unsigned(0,8);
 	begin
 		if(rising_edge(clk)) then
 			temp1 <= mt;
+			otemp := unsigned(otin);
 			intVt := unsigned(Vtemp);
 			--intVt <= max(min(intVt,Vmax),Vmin);
 			if(intVt<Vmax) then --min(intVt,Vmax)
@@ -51,6 +53,7 @@ architecture behav of step3b is
 				intVt :=  Vmin;
 			end if;
 			res <= std_logic_vector(intVt);
+			Ot <= std_logic_vector(otemp);
 		end if;
 	end process calcul;
 end architecture behav;

@@ -17,9 +17,9 @@ begin
 	I0: entity work.sd_pixel(behav) port map(itin => itin, mtmoinsun => mtmoinsun, CLK => CLK, vtmoinsun => vtmoinsun, et => et, mtout => mtout, vt => vtout);
 	process
 	begin
-		CLK <= '0';
-		wait for 10 ns;
 		CLK <= '1';
+		wait for 10 ns;
+		CLK <= '0';
 		wait for 10 ns;
 	end process;
 
@@ -43,7 +43,7 @@ begin
 		--------
 		itin 		<=	X"7C"; --124
 		mtmoinsun	<= 	X"94"; --148
-		vtmoinsun	<= 	X"17"; --23
+		vtmoinsun	<= 	X"18"; --24	
 		wait for 20 ns;
 		--------
 		itin 		<=	X"7C";
@@ -66,6 +66,5 @@ begin
 		vtmoinsun	<= 	X"80";
 		wait for 20 ns;
 		--------
-		
 	end process;
 end test;
