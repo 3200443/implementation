@@ -21,8 +21,8 @@ generic(P:integer := 4;
 );
 port(
   reset, clk, We	: in std_logic;
-  addrIn			: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG/N)))) downto 0);
-  addrOut			: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG/N)))) downto 0);
+  addrIn			: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG*8/N)))) downto 0);
+  addrOut			: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG*8/N)))) downto 0);
   inpout			: in bus_array(P - 1 downto 0)((N*8-1) downto 0);
   outpout			: out bus_array(P - 1 downto 0)((N*8-1) downto 0)
 
@@ -33,12 +33,12 @@ end entity ;
 Architecture behav of It is
 
 	-- Declaration Type Tableau Memoire
-	type table is array((Col*Lig)/N downto 0) of std_logic_vector((N*8-1) downto 0);
+	type table is array((Col*Lig*8)/N downto 0) of std_logic_vector((N*8-1) downto 0);
 	-- Fonction d'Initialisation du bancIt de Registres
 	function init_bancIt return table is
 	variable result : table;
 	begin
-	for i in (Col*Lig)/N downto 0 loop
+	for i in (Col*Lig*8)/N downto 0 loop
 	result(i) :=(others=>'0'); --A l'initialisation on met la valeur a 2
 	end loop;
 	return result;
