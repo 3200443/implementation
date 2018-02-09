@@ -32,17 +32,17 @@ end entity ;
 
 Architecture behav of sd_3pixel is
 component sd_2pixel is
-generic(N:integer :=4);
+generic(N:integer :=N);
 port(
-  itinN,mtmoinsunN	: in std_logic_vector (7 downto 0);
+  itinN,mtmoinsunN	: in std_logic_vector (N*8-1 downto 0);
   CLKN				: in std_logic;
-  vtmoinsunN		: in std_logic_vector (7 downto 0);
-  mtoutN,vtN		: out std_logic_vector(7 downto 0);
+  vtmoinsunN		: in std_logic_vector (N*8-1 downto 0);
+  mtoutN,vtN		: out std_logic_vector(N*8-1 downto 0);
   etN				: out std_logic_vector((N-1) downto 0)
 );
 end component;
 begin
-	GEN_REG:for I in 0 to P generate
+	GEN_REG:for I in 0 to P-1 generate
 		pixel : sd_2pixel
 		generic map (N=>N)
 		port map
