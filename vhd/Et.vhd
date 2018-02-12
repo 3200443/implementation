@@ -23,7 +23,7 @@ port(
   reset, clk, We	: in std_logic;
   addr				: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG/N)))) downto 0);
   inpout			: in bus_array(P - 1 downto 0)((N-1) downto 0);
-  outpout			: out bus_array(P - 1 downto 0)((N-1) downto 0)
+  outpout			: out std_logic_vector((N-1) downto 0)
 
 );
 
@@ -47,9 +47,8 @@ Architecture behav of Et is
 
 
  begin
-  	WriteEtOut:for I in 0 to P-1 generate
-    	outpout(I) <= bancEt(to_integer(unsigned(addr))+I);
-	end generate WriteEtOut;
+    outpout <= bancEt(to_integer(unsigned(addr)));
+	
 
 
     process(reset, clk)
