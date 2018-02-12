@@ -22,7 +22,7 @@ generic(P:integer := 4;
 port(
   reset, clk, We	: in std_logic;
   addr				: in std_logic_vector(integer(ceil(LOG2(real(COL*LIG*8/N)))) downto 0);
-  inpout			: in bus_array(P - 1 downto 0)((N*8-1) downto 0);
+  inpout			: in std_logic_vector((N*8-1) downto 0);
   outpout			: out bus_array(P - 1 downto 0)((N*8-1) downto 0)
 
 );
@@ -58,9 +58,7 @@ Architecture behav of It is
 			bancIt <= init_bancIt;
 		else
 			if(We = '1' and rising_edge(clk)) then
-				WriteIt:for I in 0 to P-1 loop
-					bancIt(to_integer(unsigned(addr))+I) <= inpout(I);
-				end loop WriteIt;
+				bancIt(to_integer(unsigned(addr))) <= inpout;
 			end if;
 		end if ;
 		
