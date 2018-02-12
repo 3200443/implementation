@@ -38,17 +38,64 @@ end entity ;
 Architecture behav of sd_3pixel is
 
 	signal ITaddrin, MTaddrin, VTaddrin,Etaddrin: std_logic_vector(LOG2(REAL(Col*8*Lig/N)) downto 0);
-	signal ITaddrout, MTaddrout, VTaddrout: std_logic_vector(LOG2(REAL(Col*8*Lig/N)) downto 0);
-	signal ITin : std_logic_vector(Col downto 0) ;
+	signal MTaddrout, VTaddrout: std_logic_vector(LOG2(REAL(Col*8*Lig/N)) downto 0);
+	signal ITin : std_logic_vector(N*8-1 downto 0) ;
 	signal ITwe, MTwe, VTwe, ETwe : std_logic;
 	signal state 	: unsigned(7 downto 0) := to_unsigned(0,8);
 	signal count1 	: unsigned(7 downto 0) := to_unsigned(0,8);
 	signal count2 	: unsigned(7 downto 0) := to_unsigned(0,8);
 	signal buff 	: std_logic_vector(Col*8-1 downto 0);
+
+	signal ITint,MTintin, VTintin, MTintout, VTintout 	: bus_array(P - 1 downto 0)((N*8-1) downto 0);
+	signal ETint			: bus_array(P - 1 downto 0)((N-1) downto 0);
+	signal ETintout (N-1 downto 0);
+
+
 begin
 
-
-
+	I0: entity work.sd_3pixel generic map(P=>P, N=>N) port map( 
+		itin 		=> ITint,
+		mtmoinsun	=> MTintin,
+		CLK 		=> CLK,
+		vtmoinsun	=> VTintin,
+		mtout		=> MTintout,
+		vt			=> VTintout,
+		et 			=> ETint
+	);
+	I1: entity work.VT(behav) generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
+		reset	 	=> RESET, 
+		CLK 		=> CLK, 
+		we 			=> VTwe, 
+		addrin 		=> VTaddrin, 
+		addrout 	=> VTaddrout,
+		inpout 		=> VTintout,
+		outpout 	=> VTintin
+	);
+	I2: entity work.MT(behav) generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
+		reset	 	=> RESET, 
+		CLK 		=> CLK, 
+		we 			=> MTwe, 
+		addrin 		=> MTaddrin, 
+		addrout 	=> MTaddrout,
+		inpout 		=> MTintout,
+		outpout 	=> MTintin
+	);
+	I3: entity work.IT(behav)generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
+		reset	 	=> RESET, 
+		CLK 		=> CLK, 
+		we 			=> ITwe, 
+		addr 		=> ITaddrin, 
+		inpout 		=> ITin,
+		outpout 	=> ITint
+	);
+	I0: entity work.ET(behav) generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
+		reset	 	=> RESET, 
+		CLK 		=> CLK, 
+		we 			=> ETwe, 
+		addr 		=> Etaddrin, 
+		inpout 		=> ETint,
+		outpout 	=> ETintout
+	);
 	--process(imagein)
 	-- 	variable status : unsigned(7 downto 0) := unsigned(state);
 	--begin
@@ -110,8 +157,16 @@ begin
 			end if;
 		else if (status = 3)
 			if (pos <Col) then
-				Etaddrin <= pos;
-				pos := pos +1;
+				if(iter = "00") then
+					Etaddrin <= pos;
+					bufff (N-1 downto 0) <= ETintout; --ATTRENTION A LA VALEUT DE N
+					pos := pos +1;
+					iter := iter + 1;
+				else
+					bufff(N*iter-1 downto 0) <= ETintout;
+					imageout <= bufff;
+					iter =  "00";
+				end if;
 			else
 				pos :=X"0";
 				status := "0";
