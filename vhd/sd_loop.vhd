@@ -116,12 +116,12 @@ begin
 		elsif(status = 1) then-- reception des images
 			if(rising_edge(CLK) and we = '1') then
 				--bufff(((to_integer(iter)+4)*8-1) downto to_integer(iter)) :=  imagein;
-				bufff := (bufff or ( std_logic_vector(resize(signed(imagein),bufff'length)) srl to_integer(iter)));
+				bufff := (bufff or ( std_logic_vector(resize(unsigned(imagein),bufff'length)) srl to_integer(iter)));
 				iter := iter +4;
 				if(iter = Col) then
 					iter := X"00";
 					ITwe <= '1';
-					ITaddrin <= std_logic_vector(pos);
+					ITaddrin <= std_logic_vector(resize(unsigned(pos),ITaddrin'lenght));
 					ITin <= bufff;
 					pos := pos +1;
 					if(pos = Lig) then
