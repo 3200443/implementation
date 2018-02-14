@@ -121,8 +121,8 @@ begin
 				if(iter = Col) then
 					iter := X"00";
 					ITwe <= '1';
-					ITaddrin <= std_logic_vector(resize(unsigned(pos),ITaddrin'lenght));
-					ITin <= bufff;
+					ITaddrin <= std_logic_vector(resize(unsigned(pos),ITaddrin'length));
+					ITin <= bufff(N*8-1 downto 0);
 					pos := pos +1;
 					if(pos = Lig) then
 						pos := X"00";
@@ -134,30 +134,30 @@ begin
 			iter := iter+1;
 			if(rising_edge(CLK)) then
 				if iter > 8 then
-					ITaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
-					MTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
-					VTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
-					Etaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					ITaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),1+integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					MTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),1+integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					VTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),1+integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					Etaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),1+integer(ceil(LOG2(REAL(Col*Lig/N))))));
 					MTwe <='1';
 					VTwe <='1';
 					ETwe <='1';
 				end if;
 				if pos < Col then
-					ITaddrin <= std_logic_vector(pos);
-					MTaddrout <= std_logic_vector(pos);
-					VTaddrout <= std_logic_vector(pos);
+					ITaddrin 	<= std_logic_vector(resize(unsigned(pos),ITaddrin'length));
+					MTaddrout 	<= std_logic_vector(resize(unsigned(pos),MTaddrin'length));
+					VTaddrout 	<= std_logic_vector(resize(unsigned(pos),VTaddrin'length));
 				end if;
 			end if;
 		elsif (status = 3) then
 			if (pos <Col) then
 				if(iter = "00") then
-					Etaddrin <= std_logic_vector(pos);
+					Etaddrin <= std_logic_vector(resize(unsigned(pos),ETaddrin'length));;
 					bufff (N-1 downto 0) := ETintout; --ATTRENTION A LA VALEUT DE N
 					pos := pos +1;
 					iter := iter + 1;
 				else
 					bufff(N*to_integer(iter)-1 downto 0) := ETintout;
-					imageout <= bufff;
+					imageout <= bufff( 31 downto 0);
 					iter :=  X"00";
 				end if;
 			else
