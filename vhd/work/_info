@@ -12,7 +12,7 @@ Pbus_multiplexer_pkg
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z4 w1517840872
+Z4 w1518186268
 R0
 Z5 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_3pixel.vhd
 Z6 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_3pixel.vhd
@@ -22,33 +22,168 @@ VD0RX?`E2zL5k:JVoU4Igc0
 !s100 d0W6InlWE5D1Z]z;dTmOR2
 Z7 OV;C;10.4d;61
 33
-Z8 !s110 1517840877
+Z8 !s110 1518444115
 !i10b 1
-Z9 !s108 1517840877.000000
+Z9 !s108 1518444115.000000
 Z10 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_3pixel.vhd|
 Z11 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_3pixel.vhd|
 !i113 1
 Z12 o-work work
 Z13 tExplicit 1 NoCoverage 1
-Esd_2pixel
-Z14 w1517502152
+Eet
+Z14 w1518444079
+Z15 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z16 DPx4 work 19 bus_multiplexer_pkg 0 22 D0RX?`E2zL5k:JVoU4Igc0
 R1
 R2
 R3
 R0
-Z15 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd
-Z16 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd
+Z17 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/Et.vhd
+Z18 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/Et.vhd
+l0
+L10
+VDl2g;W9`HoFF^9BCOGm^E2
+!s100 VhWHf4We`=Q`gRdT7C[VM1
+R7
+33
+Z19 !s110 1518444108
+!i10b 1
+Z20 !s108 1518444107.000000
+Z21 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/Et.vhd|
+Z22 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/Et.vhd|
+!i113 1
+R12
+R13
+Abehav
+R15
+R16
+R1
+R2
+R3
+Z23 DEx4 work 2 et 0 22 Dl2g;W9`HoFF^9BCOGm^E2
+l43
+L26
+ViU8D;n0fX3ji1=>BP1>5Q3
+!s100 5jlSJ2A6a3YLGb2`MHj3O0
+R7
+33
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R12
+R13
+Eit
+Z24 w1518444085
+R15
+R16
+R1
+R2
+R3
+R0
+Z25 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/IT.vhd
+Z26 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/IT.vhd
+l0
+L9
+VNh6WbiEaZ7_Lm6;Czba>I0
+!s100 IKl4L;81z@XT7_<h6Ce9[0
+R7
+33
+R19
+!i10b 1
+Z27 !s108 1518444108.000000
+Z28 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/IT.vhd|
+Z29 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/IT.vhd|
+!i113 1
+R12
+R13
+Abehav
+R15
+R16
+R1
+R2
+R3
+Z30 DEx4 work 2 it 0 22 Nh6WbiEaZ7_Lm6;Czba>I0
+l42
+L25
+Vf;1TG=joY_OciHZ5jj1NC0
+!s100 m7m^=EWg3I<QL?Sz0d?5a1
+R7
+33
+R19
+!i10b 1
+R27
+R28
+R29
+!i113 1
+R12
+R13
+Emt
+Z31 w1518444090
+R15
+R16
+R1
+R2
+R3
+R0
+Z32 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/MT.vhd
+Z33 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/MT.vhd
+l0
+L10
+VJQcG;M5fGWQDE]WSEd=g=2
+!s100 S_5V7_V8ANB47hm68oKcK3
+R7
+33
+R19
+!i10b 1
+R27
+Z34 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/MT.vhd|
+Z35 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/MT.vhd|
+!i113 1
+R12
+R13
+Abehav
+R15
+R16
+R1
+R2
+R3
+Z36 DEx4 work 2 mt 0 22 JQcG;M5fGWQDE]WSEd=g=2
+l44
+L27
+VCi@[fBAKA6jhI2<`E?WIJ3
+!s100 ?KB@0Vn7lKloRd=2B9G0g1
+R7
+33
+R19
+!i10b 1
+R27
+R34
+R35
+!i113 1
+R12
+R13
+Esd_2pixel
+Z37 w1517502152
+R1
+R2
+R3
+R0
+Z38 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd
+Z39 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd
 l0
 L5
 VmZB>lkB;0F<Ah1Pno>UK32
 !s100 @Sm_G=5KVMOiQ;SlPiGR@1
 R7
 33
-Z17 !s110 1517839255
+Z40 !s110 1517839255
 !i10b 1
-Z18 !s108 1517839254.000000
-Z19 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd|
-Z20 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd|
+Z41 !s108 1517839254.000000
+Z42 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd|
+Z43 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel.vhd|
 !i113 1
 R12
 R13
@@ -56,45 +191,45 @@ Abehav
 R1
 R2
 R3
-Z21 DEx4 work 9 sd_2pixel 0 22 mZB>lkB;0F<Ah1Pno>UK32
+Z44 DEx4 work 9 sd_2pixel 0 22 mZB>lkB;0F<Ah1Pno>UK32
 l28
 L18
 VoO2bRg<8cj:H@2NZa]ZoZ0
 !s100 T4ThzBcn;]WaH[@I`]YDE1
 R7
 33
-R17
+R40
 !i10b 1
-R18
-R19
-R20
+R41
+R42
+R43
 !i113 1
 R12
 R13
 Esd_2pixel_tb
-Z22 w1517503084
+Z45 w1517503084
 R1
 R2
 R3
 R0
-Z23 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd
-Z24 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd
+Z46 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd
+Z47 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd
 l0
 L5
 V87WH9SzPDWGmhiaN66`Qc0
 !s100 ^GT4Ei96G=??1FGZ>Ydi_3
 R7
 33
-R17
+R40
 !i10b 1
-Z25 !s108 1517839255.000000
-Z26 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd|
-Z27 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd|
+Z48 !s108 1517839255.000000
+Z49 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd|
+Z50 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_2pixel_tb.vhd|
 !i113 1
 R12
 R13
 Atest
-R21
+R44
 R1
 R2
 R3
@@ -105,17 +240,17 @@ Vnf4SMzz]I?Z5@U5XZOK8K1
 !s100 Y?ENTn66JZ@cg;n[Wl[Aa1
 R7
 33
-R17
+R40
 !i10b 1
-R25
-R26
-R27
+R48
+R49
+R50
 !i113 1
 R12
 R13
 Esd_3pixel
 R4
-Z28 DPx4 work 19 bus_multiplexer_pkg 0 22 D0RX?`E2zL5k:JVoU4Igc0
+R16
 R1
 R2
 R3
@@ -137,15 +272,15 @@ R11
 R12
 R13
 Abehav
-R28
+R16
 R1
 R2
 R3
-Z29 DEx4 work 9 sd_3pixel 0 22 @SX;?@YMkmK24Glk?oEgX1
+Z51 DEx4 work 9 sd_3pixel 0 22 @SX;?@YMkmK24Glk?oEgX1
 l44
 L33
-Z30 V67^>55S7;`eJoQBk=C37V1
-Z31 !s100 lJQ2Qg@2MAD8YdXebb9mC2
+V67^>55S7;`eJoQBk=C37V1
+!s100 lJQ2Qg@2MAD8YdXebb9mC2
 R7
 33
 R8
@@ -156,75 +291,125 @@ R11
 !i113 1
 R12
 R13
-Esd_pixel
-Z32 w1517491990
+Esd_loop
+Z52 w1518447146
+R15
+R16
 R1
 R2
 R3
 R0
-Z33 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd
-Z34 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd
+Z53 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_loop.vhd
+Z54 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_loop.vhd
+l0
+L10
+V^ZAefj^@T1_dU>O;DXbih0
+!s100 B8LEf^MRG1]5`Z6iLHkce1
+R7
+33
+Z55 !s110 1518447149
+!i10b 1
+Z56 !s108 1518447149.000000
+Z57 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_loop.vhd|
+Z58 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_loop.vhd|
+!i113 1
+R12
+R13
+Abehav
+R23
+R30
+R36
+Z59 DEx4 work 2 vt 0 22 A@`V:YU7I;c4CLO_WQYD52
+R51
+R15
+R16
+R1
+R2
+R3
+Z60 DEx4 work 7 sd_loop 0 22 ^ZAefj^@T1_dU>O;DXbih0
+l45
+L29
+V^iZbQ]=MbNCZ5^Sz=@f?>1
+!s100 NMdc^`OKn:OW>;Mm61`mn2
+R7
+33
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 1
+R12
+R13
+Esd_pixel
+Z61 w1517491990
+R1
+R2
+R3
+R0
+Z62 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd
+Z63 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd
 l0
 L5
 VAAKAYi2=6fc2MoEAiSz2Z3
 !s100 [DY3=V3nch8ajFR0B^dN<2
 R7
 33
-R17
+R40
 !i10b 1
-R25
-Z35 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd|
-Z36 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd|
+R48
+Z64 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd|
+Z65 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel.vhd|
 !i113 1
 R12
 R13
 Abehav
-Z37 DEx4 work 5 step4 0 22 O=NKJ?8chH]<lJLXZ@QaW1
-Z38 DEx4 work 6 step3c 0 22 _H^2A@9hHUVGe2bEknzzQ3
-Z39 DEx4 work 5 step2 0 22 R7bhK6U432S?V0hO`a@W71
-Z40 DEx4 work 5 step1 0 22 cVWO_TQ4WYNc4eU:G=lUl0
+Z66 DEx4 work 5 step4 0 22 O=NKJ?8chH]<lJLXZ@QaW1
+Z67 DEx4 work 6 step3c 0 22 _H^2A@9hHUVGe2bEknzzQ3
+Z68 DEx4 work 5 step2 0 22 R7bhK6U432S?V0hO`a@W71
+Z69 DEx4 work 5 step1 0 22 cVWO_TQ4WYNc4eU:G=lUl0
 R1
 R2
 R3
-Z41 DEx4 work 8 sd_pixel 0 22 AAKAYi2=6fc2MoEAiSz2Z3
+Z70 DEx4 work 8 sd_pixel 0 22 AAKAYi2=6fc2MoEAiSz2Z3
 l24
 L17
 V=ABcKzjja_]oEZZiUR2kf1
 !s100 d@FO>@YmCRoV<g]6bPjF31
 R7
 33
-R17
+R40
 !i10b 1
-R25
-R35
-R36
+R48
+R64
+R65
 !i113 1
 R12
 R13
 Esd_pixel_tb
-Z42 w1517492255
+Z71 w1517492255
 R1
 R2
 R3
 R0
-Z43 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd
-Z44 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd
+Z72 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd
+Z73 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd
 l0
 L5
 Vj<IJVo3ZA1<D]3mSifRZM2
 !s100 THRKT`ZG_0^`Y`Jl]:Od20
 R7
 33
-Z45 !s110 1517839256
+Z74 !s110 1517839256
 !i10b 1
-Z46 !s108 1517839256.000000
-Z47 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd|
-Z48 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd|
+Z75 !s108 1517839256.000000
+Z76 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd|
+Z77 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/sd_pixel_tb.vhd|
 !i113 1
 R12
 R13
 Atest
-R41
+R70
 R1
 R2
 R3
@@ -235,33 +420,33 @@ V?0NT8o=W<fdOMfPIS>Rd>1
 !s100 =9>oFMf=Kz@:Q=9J1BA_43
 R7
 33
-R45
+R74
 !i10b 1
-R46
-R47
-R48
+R75
+R76
+R77
 !i113 1
 R12
 R13
 Estep1
-Z49 w1517319574
+Z78 w1517319574
 R1
 R2
 R3
 R0
-Z50 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd
-Z51 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd
+Z79 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd
+Z80 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd
 l0
 L5
 VcVWO_TQ4WYNc4eU:G=lUl0
 !s100 =jS`Sj;JH@2z[gVh8e5IC2
 R7
 33
-R45
+R74
 !i10b 1
-R46
-Z52 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd|
-Z53 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd|
+R75
+Z81 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd|
+Z82 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1.vhd|
 !i113 1
 R12
 R13
@@ -269,45 +454,45 @@ Abehav
 R1
 R2
 R3
-R40
+R69
 l21
 L16
 VYMn_HOc:4]17;UDElSj?E3
 !s100 CYFKnZFTZL15Pe7^<`8n^1
 R7
 33
-R45
+R74
 !i10b 1
-R46
-R52
-R53
+R75
+R81
+R82
 !i113 1
 R12
 R13
 Estep1_tb
-Z54 w1516279490
+Z83 w1516279490
 R1
 R2
 R3
 R0
-Z55 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd
-Z56 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd
+Z84 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd
+Z85 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd
 l0
 L5
 V933@Ll3m@HKVHY;^0]k_>2
 !s100 _aJSjh]dDCmEcP8Z>ZRG?2
 R7
 33
-R45
+R74
 !i10b 1
-R46
-Z57 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd|
-Z58 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd|
+R75
+Z86 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd|
+Z87 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step1_tb.vhd|
 !i113 1
 R12
 R13
 Atest
-R40
+R69
 R1
 R2
 R3
@@ -318,33 +503,33 @@ V`F49YRzBNYj^T:66HImO[2
 !s100 311Jl7T29FKX=W_KbcWA@3
 R7
 33
-R45
+R74
 !i10b 1
-R46
-R57
-R58
+R75
+R86
+R87
 !i113 1
 R12
 R13
 Estep2
-Z59 w1516294108
+Z88 w1516294108
 R1
 R2
 R3
 R0
-Z60 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd
-Z61 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd
+Z89 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd
+Z90 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd
 l0
 L5
 VR7bhK6U432S?V0hO`a@W71
 !s100 FAM_iKndI?KmRcc]mTJnl3
 R7
 33
-Z62 !s110 1517839257
+Z91 !s110 1517839257
 !i10b 1
-Z63 !s108 1517839257.000000
-Z64 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd|
-Z65 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd|
+Z92 !s108 1517839257.000000
+Z93 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd|
+Z94 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2.vhd|
 !i113 1
 R12
 R13
@@ -352,45 +537,45 @@ Abehav
 R1
 R2
 R3
-R39
+R68
 l20
 L15
 V`7Cb6iPBlT_S^NJMd`RZ_0
 !s100 FiPHJnG:^V@TBLWj0Z0j00
 R7
 33
-R62
+R91
 !i10b 1
-R63
-R64
-R65
+R92
+R93
+R94
 !i113 1
 R12
 R13
 Estep2_tb
-Z66 w1516286858
+Z95 w1516286858
 R1
 R2
 R3
 R0
-Z67 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd
-Z68 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd
+Z96 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd
+Z97 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd
 l0
 L5
 Vf4]G]_RSblI3_Fg]I2??>3
 !s100 3ezeaIIj;MX_g[M0=[5@;3
 R7
 33
-R45
+R74
 !i10b 1
-R46
-Z69 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd|
-Z70 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd|
+R75
+Z98 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd|
+Z99 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step2_tb.vhd|
 !i113 1
 R12
 R13
 Atest
-R39
+R68
 R1
 R2
 R3
@@ -401,38 +586,38 @@ VQ:hUdb0=K:EHzR;RN`H;G3
 !s100 3;hOn2l4M8cUHK:CIN0:41
 R7
 33
-R45
+R74
 !i10b 1
-R46
-R69
-R70
+R75
+R98
+R99
 !i113 1
 R12
 R13
 Estep3
-Z71 w1517238804
+Z100 w1517238804
 R3
 R2
 R1
 R0
-Z72 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd
-Z73 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd
+Z101 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd
+Z102 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd
 l0
 L10
 VjU3=h0Fg?:bKFEPdBANnl0
 !s100 ae;dYCb7E]iknX1bS;ZGd0
 R7
 33
-R45
+R74
 !i10b 1
-R46
-Z74 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd|
-Z75 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd|
+R75
+Z103 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd|
+Z104 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3.vhd|
 !i113 1
 R12
 R13
 Aarchi_step3
-Z76 DEx4 work 8 step3bis 0 22 f^7o?=UnHlTWdUn6ChE7i2
+Z105 DEx4 work 8 step3bis 0 22 f^7o?=UnHlTWdUn6ChE7i2
 R3
 R2
 R1
@@ -443,33 +628,33 @@ VgaQ5HK9gQ]aizCMP9G>oM2
 !s100 FIgPbFEjI9?6FHoN=GQf92
 R7
 33
-R45
-!i10b 1
-R46
 R74
+!i10b 1
 R75
+R103
+R104
 !i113 1
 R12
 R13
 Estep3a
-Z77 w1517491807
+Z106 w1517491807
 R3
 R2
 R1
 R0
-Z78 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd
-Z79 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd
+Z107 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd
+Z108 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd
 l0
 L9
 VBC_GPNLMjA::BDe0Mh5]13
 !s100 ]e1H2l@ElQ`lXEQjN<0P10
 R7
 33
-R45
+R74
 !i10b 1
-R46
-Z80 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd|
-Z81 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd|
+R75
+Z109 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd|
+Z110 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3a.vhd|
 !i113 1
 R12
 R13
@@ -477,40 +662,40 @@ Abehav
 R3
 R2
 R1
-Z82 DEx4 work 6 step3a 0 22 BC_GPNLMjA::BDe0Mh5]13
+Z111 DEx4 work 6 step3a 0 22 BC_GPNLMjA::BDe0Mh5]13
 l28
 L16
 V[YfoN5]BEe@dhW91VMgB11
 !s100 cbAcCJHABT;dX>28XN06B3
 R7
 33
-R45
+R74
 !i10b 1
-R46
-R80
-R81
+R75
+R109
+R110
 !i113 1
 R12
 R13
 Estep3b
-Z83 w1517491744
+Z112 w1517491744
 R3
 R2
 R1
 R0
-Z84 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd
-Z85 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd
+Z113 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd
+Z114 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd
 l0
 L9
 VA31<ZRlADT663N0MVWBC31
 !s100 Nzj]R_0KPjJF:ozU13U<<3
 R7
 33
-R62
+R91
 !i10b 1
-R46
-Z86 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd|
-Z87 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd|
+R75
+Z115 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd|
+Z116 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3b.vhd|
 !i113 1
 R12
 R13
@@ -518,40 +703,40 @@ Abehav
 R3
 R2
 R1
-Z88 DEx4 work 6 step3b 0 22 A31<ZRlADT663N0MVWBC31
+Z117 DEx4 work 6 step3b 0 22 A31<ZRlADT663N0MVWBC31
 l25
 L16
 V`LO_fnZ5A6h;bROUIGaNF1
 !s100 iS4K5cz9kE@o0Mlj8d?_h1
 R7
 33
-R62
+R91
 !i10b 1
-R46
-R86
-R87
+R75
+R115
+R116
 !i113 1
 R12
 R13
 Estep3bis
-Z89 w1517237679
+Z118 w1517237679
 R3
 R2
 R1
 R0
-Z90 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd
-Z91 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd
+Z119 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd
+Z120 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd
 l0
 L10
 Vf^7o?=UnHlTWdUn6ChE7i2
 !s100 zDXh4TS:AZ0:N=LYMQhNA0
 R7
 33
-R62
+R91
 !i10b 1
-R63
-Z92 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd|
-Z93 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd|
+R92
+Z121 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd|
+Z122 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3bis.vhd|
 !i113 1
 R12
 R13
@@ -559,83 +744,83 @@ Aarchi_step3bis
 R3
 R2
 R1
-R76
+R105
 l22
 L17
 V[PYoCOH]aG8Vh37[MhK@51
 !s100 eUC5BjOnQfSZNF:XT`@Mo1
 R7
 33
-R62
+R91
 !i10b 1
-R63
 R92
-R93
+R121
+R122
 !i113 1
 R12
 R13
 Estep3c
-Z94 w1517491585
+Z123 w1517491585
 R3
 R2
 R1
 R0
-Z95 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd
-Z96 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd
+Z124 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd
+Z125 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd
 l0
 L10
 V_H^2A@9hHUVGe2bEknzzQ3
 !s100 O^PbKg^><`9AS>87W]]Ti3
 R7
 33
-R62
+R91
 !i10b 1
-R63
-Z97 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd|
-Z98 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd|
+R92
+Z126 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd|
+Z127 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step3c.vhd|
 !i113 1
 R12
 R13
 Abehav
-R88
-R82
+R117
+R111
 R3
 R2
 R1
-R38
+R67
 l22
 L17
 Vj3Po^?[[]Ta[IHo29A]^Q0
 !s100 51TjEd9U`Ik@2D^MGlbWL3
 R7
 33
-R62
+R91
 !i10b 1
-R63
-R97
-R98
+R92
+R126
+R127
 !i113 1
 R12
 R13
 Estep4
-Z99 w1517491024
+Z128 w1517491024
 R3
 R2
 R1
 R0
-Z100 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd
-Z101 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd
+Z129 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd
+Z130 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd
 l0
 L10
 VO=NKJ?8chH]<lJLXZ@QaW1
 !s100 4iiH>`IkO=Dm?l34ZX[=]0
 R7
 33
-R62
+R91
 !i10b 1
-R63
-Z102 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd|
-Z103 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd|
+R92
+Z131 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd|
+Z132 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/step4.vhd|
 !i113 1
 R12
 R13
@@ -643,40 +828,40 @@ Aarchi_step4
 R3
 R2
 R1
-R37
+R66
 l21
 L18
 VTz:]N5OPC>^A2fb5OV::Y1
 !s100 >I[>NRfQE5<1@1M8n9z`@3
 R7
 33
-R62
+R91
 !i10b 1
-R63
-R102
-R103
+R92
+R131
+R132
 !i113 1
 R12
 R13
 Etb_step3
-Z104 w1516286751
+Z133 w1516286751
 R3
 R2
 R1
 R0
-Z105 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd
-Z106 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd
+Z134 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd
+Z135 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd
 l0
 L6
 V_2^IXa3[K4miG@SQCkd9m0
 !s100 FdKfeh3EOO^UgRjDgBea70
 R7
 33
-R62
+R91
 !i10b 1
-R63
-Z107 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd|
-Z108 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd|
+R92
+Z136 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd|
+Z137 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step3.vhd|
 !i113 1
 R12
 R13
@@ -691,33 +876,33 @@ VFH;LE4X?YWX2J0?EVO[HT2
 !s100 DikGISj;?Hi5_NhNd6=<o2
 R7
 33
-R62
+R91
 !i10b 1
-R63
-R107
-R108
+R92
+R136
+R137
 !i113 1
 R12
 R13
 Etb_step4
-Z109 w1516288087
+Z138 w1516288087
 R3
 R2
 R1
 R0
-Z110 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd
-Z111 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd
+Z139 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd
+Z140 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd
 l0
 L6
 V9PS6iPA^W7[O3mIcC_Hag2
 !s100 SoLP4[<5iEXeO>7zV?V[E0
 R7
 33
-R62
+R91
 !i10b 1
-R63
-Z112 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd|
-Z113 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd|
+R92
+Z141 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd|
+Z142 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/tb_step4.vhd|
 !i113 1
 R12
 R13
@@ -732,11 +917,56 @@ V3PGn2Z95ZhI2bLomf@c5I3
 !s100 >JzT9QaB>TY8K^eeEfUhA0
 R7
 33
-R62
+R91
 !i10b 1
-R63
-R112
-R113
+R92
+R141
+R142
+!i113 1
+R12
+R13
+Evt
+Z143 w1518444095
+R15
+R16
+R1
+R2
+R3
+R0
+Z144 8/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/VT.vhd
+Z145 F/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/VT.vhd
+l0
+L9
+VA@`V:YU7I;c4CLO_WQYD52
+!s100 Qn]9V@KXjXaFZ;Z7fDMOf1
+R7
+33
+Z146 !s110 1518444112
+!i10b 1
+Z147 !s108 1518444112.000000
+Z148 !s90 -reportprogress|300|-work|work|/home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/VT.vhd|
+Z149 !s107 /home/quarrionn/Documents/2017-2018/Implementation/implementation/vhd/VT.vhd|
+!i113 1
+R12
+R13
+Abehav
+R15
+R16
+R1
+R2
+R3
+R59
+l43
+L26
+VjM38Wz;58zD5Ya8S`Pjz01
+!s100 =i]B[YD42kUIJPlK;YXfz1
+R7
+33
+R146
+!i10b 1
+R147
+R148
+R149
 !i113 1
 R12
 R13

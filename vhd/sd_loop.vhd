@@ -1,13 +1,3 @@
-Library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-
-
-
-package bus_multiplexer_pkg is
-        type bus_array is array(natural range <>) of std_logic_vector;
-end package;
-
 
 
 
@@ -15,6 +5,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.bus_multiplexer_pkg.all;
+use ieee.math_real.all;
 
 entity sd_loop is
 generic(
@@ -35,10 +26,10 @@ end entity ;
 
 
 
-Architecture behav of sd_3pixel is
+Architecture behav of sd_loop is
 
-	signal ITaddrin, MTaddrin, VTaddrin,Etaddrin: std_logic_vector(LOG2(REAL(Col*8*Lig/N)) downto 0);
-	signal MTaddrout, VTaddrout: std_logic_vector(LOG2(REAL(Col*8*Lig/N)) downto 0);
+	signal ITaddrin, MTaddrin, VTaddrin,Etaddrin: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
+	signal MTaddrout, VTaddrout: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
 	signal ITin : std_logic_vector(N*8-1 downto 0) ;
 	signal ITwe, MTwe, VTwe, ETwe : std_logic;
 	signal state 	: unsigned(7 downto 0) := to_unsigned(0,8);
@@ -48,7 +39,7 @@ Architecture behav of sd_3pixel is
 
 	signal ITint,MTintin, VTintin, MTintout, VTintout 	: bus_array(P - 1 downto 0)((N*8-1) downto 0);
 	signal ETint			: bus_array(P - 1 downto 0)((N-1) downto 0);
-	signal ETintout (N-1 downto 0);
+	signal ETintout 		: std_logic_vector(N-1 downto 0);
 
 
 begin
@@ -88,7 +79,7 @@ begin
 		inpout 		=> ITin,
 		outpout 	=> ITint
 	);
-	I0: entity work.ET(behav) generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
+	I4: entity work.ET(behav) generic map(P=>P, N =>N, Col => Col, Lig => Lig) port map(
 		reset	 	=> RESET, 
 		CLK 		=> CLK, 
 		we 			=> ETwe, 
@@ -106,70 +97,70 @@ begin
 
 	process(CLK, RESET)
 		variable status : unsigned(7 downto 0) := unsigned(state);
-		variable bufff 	: std_logic_vector := buff;
+		variable bufff 	: std_logic_vector(N-1 downto 0) := buff;
 		variable iter  	: unsigned(7 downto 0) := count1;
 		variable pos  	: unsigned(7 downto 0) := count2;
 	begin
 
 		if(rising_edge (CLK)) then
-			ITwe <= "0";
-			MTwe <= "0";
-			VTwe <= "0";
+			ITwe <= '0';
+			MTwe <= '0';
+			VTwe <= '0';
 		end if;
 
 		if(RESET = '1') then
-			count1 <= X"00";
-			count2 <= X"00";
-			status <= X"00";
-		else if(status = 1) -- reception des images
-			if(rising_edge(CLK) & we) then
-				bufff(((iter+4)*8-1) downto iter) <=  imagein;
+			iter := X"00";
+			pos  := X"00";
+			status := X"00";
+		elsif(status = 1) then-- reception des images
+			if(rising_edge(CLK) and we = '1') then
+				bufff(((to_integer(iter)+4)*8-1) downto to_integer(iter)) :=  imagein;
 				iter := iter +4;
 				if(iter = Col) then
-					iter := 0;
-					ITwe <= "1";
-					ITaddrin <= count2;
+					iter := X"00";
+					ITwe <= '1';
+					ITaddrin <= std_logic_vector(pos);
 					ITin <= bufff;
-					count2 := count2 +1;
-					if(count2 = Lig) then
-						count2 := 0;
-						status := 2;
+					pos := pos +1;
+					if(pos = Lig) then
+						pos := X"00";
+						status := X"02";
 					end if;
 				end if;
 			end if;
-		else if(status = 2) then -- traitement
+		elsif(status = 2) then -- traitement
 			iter := iter+1;
 			if(rising_edge(CLK)) then
 				if iter > 8 then
-					ITaddrin := iter - 9;
-					MTaddrin := iter - 9;
-					VTaddrin := iter - 9;
-					Etaddrin := iter - 9;
-					MTwe <=1;
-					VTwe <=1;
-					ETwe <=1;
+					ITaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					MTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					VTaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					Etaddrin <= std_logic_vector(to_unsigned((to_integer(iter) - 9),integer(ceil(LOG2(REAL(Col*8*Lig/N))))));
+					MTwe <='1';
+					VTwe <='1';
+					ETwe <='1';
 				end if;
 				if pos < Col then
-					ITaddrout <= pos;
-					MTaddrout <= pos;
-					VTaddrout <= pos;
+					ITaddrin <= std_logic_vector(pos);
+					MTaddrout <= std_logic_vector(pos);
+					VTaddrout <= std_logic_vector(pos);
 				end if;
 			end if;
-		else if (status = 3)
+		elsif (status = 3) then
 			if (pos <Col) then
 				if(iter = "00") then
-					Etaddrin <= pos;
-					bufff (N-1 downto 0) <= ETintout; --ATTRENTION A LA VALEUT DE N
+					Etaddrin <= std_logic_vector(pos);
+					bufff (N-1 downto 0) := ETintout; --ATTRENTION A LA VALEUT DE N
 					pos := pos +1;
 					iter := iter + 1;
 				else
-					bufff(N*iter-1 downto 0) <= ETintout;
+					bufff(N*to_integer(iter)-1 downto 0) := ETintout;
 					imageout <= bufff;
-					iter =  "00";
+					iter :=  X"00";
 				end if;
 			else
-				pos :=X"0";
-				status := "0";
+				pos :=X"00";
+				status := X"00";
 			end if;
 		end if;
 		state <= status;
@@ -179,21 +170,22 @@ begin
 	end process;
 
 	process(we)
-		if we = "1" & status = "0" then
-			state = 1;
+	begin
+		if we = '1' and state = "00" then
+			state <= X"01";
 		end if;
 	end process;
 	process(count1)
 	begin
-		if(status = 2 & count1 > Lig+8) then
-			status = 3;
-			iter <= X"00";
-			pos <= X"00";
+		if(state = X"02" and count1 > Lig+8) then
+			state <= X"03";
+			count1 <= X"00";
+			count2 <= X"00";
 		end if;
-		if(count1 > 8 & status = 2) then
-			ITwe <= "1";
-			MTwe <= "1";
-			VTwe <= "1";
+		if(count1 > 8 and state = X"02") then
+			ITwe <= '1';
+			MTwe <= '1';
+			VTwe <= '1';
 		end if;
 	end process;
 end behav;
