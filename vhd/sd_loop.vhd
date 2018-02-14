@@ -101,6 +101,7 @@ begin
 		variable bufff 	: std_logic_vector(Col*8-1 downto 0) := buff;
 		variable iter  	: unsigned(7 downto 0) := count1;
 		variable pos  	: unsigned(7 downto 0) := count2;
+		variable address: integer :=0;
 	begin
 
 		if(rising_edge (CLK)) then
@@ -115,7 +116,8 @@ begin
 			status := X"00";
 		elsif(status = 1) then-- reception des images
 			if(rising_edge(CLK) and we = '1') then
-				bufff(((to_integer(iter)+4)*8-1) downto to_integer(iter)) :=  imagein;
+				address := ((to_integer(iter)+4)*8-1);
+				bufff(address downto to_integer(iter)) :=  imagein;
 				iter := iter +4;
 				if(iter = Col) then
 					iter := X"00";
