@@ -9,8 +9,8 @@ use ieee.math_real.all;
 
 entity sd_loop is
 generic(
-		Col		:integer := 80;
-		Lig 	:integer := 60;
+		Col		:integer := 60;
+		Lig 	:integer := 80;
 		P 		:integer := 4;
 		N 		:integer := 16
 );
@@ -28,14 +28,15 @@ end entity ;
 
 Architecture behav of sd_loop is
 
-	signal ITaddrin, MTaddrin, VTaddrin,Etaddrin: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
-	signal MTaddrout, VTaddrout: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
-	signal ITin : std_logic_vector(N*8-1 downto 0) ;
-	signal ITwe, MTwe, VTwe, ETwe : std_logic;
-	signal state 	: unsigned(7 downto 0) := to_unsigned(0,8);
-	signal count1 	: unsigned(7 downto 0) := to_unsigned(0,8);
-	signal count2 	: unsigned(7 downto 0) := to_unsigned(0,8);
-	signal buff 	: std_logic_vector(Col*8-1 downto 0);
+	signal ITaddrin, MTaddrin, VTaddrin 	: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
+	signal Etaddrin 						: std_logic_vector(integer(ceil(LOG2(real(COL*LIG/N)))) downto 0);
+	signal MTaddrout, VTaddrout				: std_logic_vector(integer(ceil(LOG2(REAL(Col*8*Lig/N)))) downto 0);
+	signal ITin 							: std_logic_vector(N*8-1 downto 0) ;
+	signal ITwe, MTwe, VTwe, ETwe 			: std_logic;
+	signal state 							: unsigned(7 downto 0) := to_unsigned(0,8);
+	signal count1 							: unsigned(7 downto 0) := to_unsigned(0,8);
+	signal count2 							: unsigned(7 downto 0) := to_unsigned(0,8);
+	signal buff 							: std_logic_vector(Col*8-1 downto 0);
 
 	signal ITint,MTintin, VTintin, MTintout, VTintout 	: bus_array(P - 1 downto 0)((N*8-1) downto 0);
 	signal ETint			: bus_array(P - 1 downto 0)((N-1) downto 0);
@@ -97,7 +98,7 @@ begin
 
 	process(CLK, RESET)
 		variable status : unsigned(7 downto 0) := unsigned(state);
-		variable bufff 	: std_logic_vector(N-1 downto 0) := buff;
+		variable bufff 	: std_logic_vector(Col*8-1 downto 0) := buff;
 		variable iter  	: unsigned(7 downto 0) := count1;
 		variable pos  	: unsigned(7 downto 0) := count2;
 	begin
