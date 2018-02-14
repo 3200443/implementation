@@ -151,7 +151,7 @@ begin
 		elsif (status = 3) then
 			if (pos <Col) then
 				if(iter = "00") then
-					Etaddrin <= std_logic_vector(resize(unsigned(pos),ETaddrin'length));;
+					Etaddrin <= std_logic_vector(resize(unsigned(pos),ETaddrin'length));
 					bufff (N-1 downto 0) := ETintout; --ATTRENTION A LA VALEUT DE N
 					pos := pos +1;
 					iter := iter + 1;
